@@ -1,8 +1,9 @@
+import '../../style.css'
 import {GUI} from "dat.gui";
 import * as THREE from 'three'
 
 function main() {
-  const canvas = document.querySelector('#c');
+  const canvas = document.querySelector('canvas.webgl');
   const renderer = new THREE.WebGLRenderer({canvas});
   const gui = new GUI();
 
@@ -30,7 +31,7 @@ function main() {
   const widthSegments = 6;
   const heightSegments = 6;
   const sphereGeometry = new THREE.SphereGeometry(
-    radius, widthSegments, heightSegments);
+      radius, widthSegments, heightSegments);
 
   const solarSystem = new THREE.Object3D();
   scene.add(solarSystem);

@@ -1,20 +1,34 @@
-*
-{
+html, body {
+    height: 100%;
     margin: 0;
-    padding: 0;
+    color: white;
+    font-family: monospace;
 }
-
-html,
-body
-{
-    height: 100vh;
-    font-family: 'Poppins';
+.webgl {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
-
-.webgl
-{
-    position: fixed;
-    top: 0;
-    left: 0;
-    outline: none;
+.ui {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    background: rgba(64, 64, 64, 0.8);
+    padding: .5em;
+}
+.ui .axisgrid {
+    display: flex;
+    align-items: center;
+}
+.ui .axisgrid:nth-child(odd) {
+    background: rgba(72, 72, 72, 0.8);
+}
+.ui .label {
+    width: 8em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.ui .checkbox {
+    display: flex;
+    align-items: center;
 }
