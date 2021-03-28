@@ -99,7 +99,7 @@ function main() {
     gui.add(helper, 'visible').name(label);
   }
 
-  makeAxisGrid(solarSystem, 'solarSystem', 26);
+  makeAxisGrid(solarSystem, 'Solar System', 26);
   makeAxisGrid(sunMesh, 'sunMesh');
   makeAxisGrid(earthOrbit, 'earthOrbit');
   makeAxisGrid(earthMesh, 'earthMesh');
