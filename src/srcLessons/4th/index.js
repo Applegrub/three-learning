@@ -2,7 +2,7 @@ import '../../style.css'
 import {GUI} from "dat.gui";
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-import checker from './textures/checker.png'
+import checker from '../../textures/checker.png'
 import { RectAreaLightUniformsLib } from 'three/examples/jsm/lights/RectAreaLightUniformsLib'
 import { RectAreaLightHelper } from 'three/examples/jsm/helpers/RectAreaLightHelper'
 
