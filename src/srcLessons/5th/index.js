@@ -11,6 +11,9 @@ import flower6 from '../../textures/flower-6.jpg'
 
 function main() {
   const canvas = document.querySelector('canvas.webgl');
+  const loadingElm = document.querySelector('.loading')
+  const progressBarElm = loadingElm.querySelector('.progressbar')
+
   const renderer = new THREE.WebGLRenderer({canvas});
 
   const fov = 75;
@@ -29,7 +32,8 @@ function main() {
     scene.add(light);
   }
 
-  const loader = new THREE.TextureLoader()
+  const loadManager = new THREE.LoadingManager()
+  const loader = new THREE.TextureLoader(loadManager)
   const cubeSize = 1
 
   const materials = [
@@ -46,9 +50,17 @@ function main() {
   const cubeMat = new THREE.MeshBasicMaterial({
     map: loader.load(wall)
   })
-  const cube = new THREE.Mesh(cubeGeo, materials)
-  scene.add(cube)
-  cubes.push(cube)
+  loadManager.onLoad= () => {
+    loadingElm.style.display = 'none'
+    const cube = new THREE.Mesh(cubeGeo, materials)
+    scene.add(cube)
+    cubes.push(cube)
+  }
+
+  loadManager.onProgress = (urlOfLastItemLoaded, itemsLoaded, itemsTotal) => {
+    const progress = itemsLoaded/itemsTotal
+    progressBarElm.style.transform = `scaleX(${progress})`
+  }
 
   function resizeRendererToDisplaySize(renderer) {
     const canvas = renderer.domElement;
